@@ -60,7 +60,7 @@ nav {
 nav a {
     color: ##15284c;
     text-decoration: none;
-    padding: 0 50px;
+    padding:  40px;
     font-size: 30px
 }
 
@@ -162,7 +162,7 @@ h2 {
 
 .news-tab {
   position: absolute;
-  top: 52%; /* Adjust the value to move it down */
+  top: 70%; /* Adjust the value to move it down */
   right: 0%;
   width: 15%;
   text-align: left;
@@ -182,14 +182,17 @@ h2 {
   color: #fff
 }
 .news-tab ul li a {
-  color: #fff;
-  font-size: 28px;
-  background-color:;
-  text-decoration: none;
+    color: #6cb1e3; /* Change text color to light blue */
+    font-size: 28px;
+    text-decoration: none;
+    background-color: transparent; /* Remove background color */
+    transition: background-color 0.3s ease; /* Add transition effect */
+    text-align: left;
 }
+
 .news-tab ul li a:hover {
-  text-decoration: underline;
-  background-color: #6cb1e2;
+    background-color: #fff; /* Change background color to white on hover */
+    color: #15284c; /* Change text color to dark blue on hover */
 }
 
 #welcome img {
