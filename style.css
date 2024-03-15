@@ -40,7 +40,7 @@ header {
 
 
 
-  
+
   }
   .header-img {
       position: absolute;
@@ -141,7 +141,8 @@ table {
 th {
   font-size: 40px;
   font-weight: bold;
-  
+  color: #fff
+
 }
 
 td {
@@ -150,30 +151,35 @@ td {
   text-align: center;
   border-bottom: 1px solid #ddd;
   align-items: center;
+  color: #fff
 }
 
 h2 {
   font-size: 36px;
   text-align: center;
+  color: #fff
 }
 
 .news-tab {
   position: absolute;
-  top: 35%; /* Adjust the value to move it down */
+  top: 52%; /* Adjust the value to move it down */
   right: 0%;
   width: 15%;
   text-align: left;
   margin-right: 20px;
   border-left: 10px solid #6cb1e2; /* Add a border on the left side */
-  padding-left: 2px; /* Add some padding to create space between the border and content */
+  padding-left: 2px; 
+  color: #fff/* Add some padding to create space between the border and content */
 }
 
 .news-tab ul {
   list-style-type: none;
   padding: 0;
+  color: #fff
 }
 .news-tab ul li {
   margin-bottom: 10px;
+  color: #fff
 }
 .news-tab ul li a {
   color: #fff;
@@ -189,6 +195,7 @@ h2 {
 #welcome img {
   display: block;
   margin: 0 auto;
+  color: #fff
 }
 .grid-container {
   display: grid;
