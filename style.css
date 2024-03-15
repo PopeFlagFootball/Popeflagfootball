@@ -60,7 +60,7 @@ nav {
 nav a {
     color: ##15284c;
     text-decoration: none;
-    padding:  40px;
+    padding: 0 50px;
     font-size: 30px
 }
 
@@ -161,16 +161,14 @@ h2 {
 }
 
 .news-tab {
-  position: absolute;
-  top: 70%; /* Adjust the value to move it down */
-  right: 0%;
-  width: 15%;
-  text-align: left;
-  margin-right: 20px;
-  border-left: 10px solid #6cb1e2; /* Add a border on the left side */
-  padding-left: 2px; 
-  color: #fff/* Add some padding to create space between the border and content */
+  position: static; /* Change position to static for smaller screens */
+  width: 100%; /* Set width to 100% for smaller screens */
+  margin-top: 20px; /* Add margin-top to separate from welcome content */
+  padding-left: 0; /* Remove left padding */
+  border: none; /* Remove border */
+  text-align: center; /* Center align text */
 }
+
 
 .news-tab ul {
   list-style-type: none;
@@ -187,7 +185,6 @@ h2 {
     text-decoration: none;
     background-color: transparent; /* Remove background color */
     transition: background-color 0.3s ease; /* Add transition effect */
-    text-align: left;
 }
 
 .news-tab ul li a:hover {
