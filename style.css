@@ -212,3 +212,14 @@ h2 {
 h3{
   font-size: 36px;
 }
+.pdf-link {
+    color: white; /* Change link color to white */
+    text-decoration: none; /* Remove default underline */
+    background-color: transparent; /* Set background color to transparent */
+    padding: 5px 10px; /* Optional: Add padding for better appearance */
+}
+
+.pdf-link:hover {
+    background-color: #6cb1e2; /* Change background color on hover */
+    text-decoration: underline; /* Underline text on hover */
+}
