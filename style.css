@@ -13,7 +13,7 @@ body {
 header {
   background-color: #6cb1e2;
   color: #fff;
-  padding: .5% .5%; /* Adjust padding as a percentage of the viewport width */
+  padding: .5% 1%; /* Adjust padding as needed */
   text-align: center;
   font: simplifica;
   font-size: 2vw; /* Adjust font size as a percentage of the viewport width */
@@ -22,36 +22,34 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+h1 {
+  flex-grow: 1; /* Allow the heading to grow and occupy remaining space */
+  margin: 2%; /* Remove default margin */
+}
 
+/* Styling for left and right images */
+.header-img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 10%; /* Adjust as needed */
+  height: auto;
+}
 
-  /* Styling for left and right images */
-  .header-img.left {
-    max-width: 100%; /* Ensures the image does not exceed the width of its container */
-    height: auto; /* Allows the image to maintain its aspect ratio */
-  }
+.header-img.left {
+  left: 1%;
+}
 
-  /* Media query for smaller screens */
-  @media screen and (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+.header-img.right {
+  right: 1%;
+}
 
-
-
-
-  }
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
   .header-img {
-      position: absolute;
-      top: 0;
+    max-width: 30%; /* Adjust for smaller screens */
   }
-
-  }
-  .header-img.right {
-    max-width: 100%; /* Ensures the image does not exceed the width of its container */
-    height: auto; /* Allows the image to maintain its aspect ratio */
-    }
+}
 nav {
     background-color: #fff;
     text-align: center;
