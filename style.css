@@ -242,3 +242,38 @@ h3{
     background-color: #6cb1e2; /* Change background color on hover */
     text-decoration: underline; /* Underline text on hover */
 }
+
+#sponsor {
+  text-align: center; /* Center align the sponsor logo and name */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+.sponsor-logo {
+  width: 100px; /* Adjust width of the sponsor logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.sponsor-name {
+  font-size: 16px; /* Adjust font size for sponsor name */
+  margin-top: 10px; /* Add top margin for spacing */
+}
+#thank-you {
+  text-align: center; /* Center align the "Thank You" message */
+  margin-top: 20px; /* Add top margin for spacing */
+}
+
+#thank-you h2 {
+  font-size: 36px; /* Adjust font size of the "Thank You" message */
+  color: #fff; /* Change text color if needed */
+}
+.sponsor-name a {
+  color: #fff; /* Set default text color */
+  text-decoration: none; /* Remove underline by default */
+  font-weight: normal; /* Set default font weight */
+}
+
+.sponsor-name a:hover {
+  color: #6cb1e2; /* Change text color to white on hover */
+  text-decoration: underline; /* Underline text on hover */
+  font-weight: bold; /* Set font weight to bold on hover */
+}
