@@ -172,6 +172,10 @@ td {
   align-items: center;
   color: #fff
 }
+.schedule-background {
+  background-color: #6cb1e2; /* Carolina Blue */
+  color: #fff; /* Set text color to black for better visibility */
+}
 
 h2 {
   font-size: 36px;
