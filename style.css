@@ -281,3 +281,57 @@ h3{
   text-decoration: underline; /* Underline text on hover */
   font-weight: bold; /* Set font weight to bold on hover */
 }
+
+.roster {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  background-color: #6cb1e2;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.player-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+}
+
+.player-name {
+  margin-right: 20px; /* Increased margin for more space */
+  font-size: 1.5em;
+}
+
+.player-grade, .player-positions {
+  margin: 0 20px; /* Increased horizontal margins */
+  font-size: 1.5em;
+}
+
+.player-grade {
+  margin-left: 20px; /* More space between name and grade */
+}
+
+.player-positions {
+  margin-left: 20px; /* More space between grade and positions */
+}
+.jersey-number {
+    font-size: 2em; /* Increased font size */
+    font-weight: bold; /* Bold text */
+    margin-right: 30px; /* Space between jersey number and player picture */
+    width: 40px; /* Adjust width as needed for alignment */
+    text-align: center;
+}
