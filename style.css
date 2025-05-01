@@ -302,24 +302,25 @@ h3{
 }
 
 .player {
-  flex: 0 0 calc(50% - 20px); /* Ensure each player takes 50% width minus margins */
-  margin: 10px; /* Add space around player cards */
+  flex: 0 0 calc(30% - 20px); /* Reduce width to 30% */
+  margin: 10px;
   background-color: #6cb1e2;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex; /* Keep player info aligned in a row */
+  display: flex;
   align-items: center;
-  box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
+  box-sizing: border-box;
 }
 
 /* Player photo styling */
 .player-photo {
-  width: 160px; /* Increase size to 160px */
-  height: 200px; /* Increase height to 160px */
+  width: 120px;
+  height: 150px;
   border-radius: 50%;
-  margin-right: 30px;
+  margin-right: 20px;
+  flex-shrink: 0;
 }
 
 /* Player information */
