@@ -302,7 +302,7 @@ h3{
 }
 
 .player {
-  flex: 0 0 calc(30% - 20px); /* Reduce width to 30% */
+  flex: 0 0 400px; /* Set fixed width */
   margin: 10px;
   background-color: #6cb1e2;
   border: 1px solid #ddd;
@@ -312,6 +312,7 @@ h3{
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  min-height: 200px; /* Maintain original height */
 }
 
 /* Player photo styling */
