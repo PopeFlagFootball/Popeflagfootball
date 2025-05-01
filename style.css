@@ -299,7 +299,7 @@ h3{
 }
 
 .player {
-  width: 500px; /* Reduce width */
+  width: 600px; /* Increased width */
   margin: 10px auto;
   background-color: #6cb1e2;
   border: 1px solid #ddd;
