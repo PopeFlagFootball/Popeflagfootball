@@ -292,18 +292,15 @@ h3{
 
 /* Basic Styling for larger screens remains unchanged */
 
-.roster {
-  max-width: 800px; /* Set a max width for the entire roster */
-  margin: 20px auto; /* Center align the roster */
-  padding: 10px;
-  display: flex; /* Enable flexbox for the roster */
-  flex-wrap: wrap; /* Allow wrapping into multiple rows */
-  justify-content: space-between; /* Ensure equal spacing between columns */
+.roster-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .player {
-  flex: 0 0 400px; /* Set fixed width */
-  margin: 10px;
+  width: 500px; /* Reduce width */
+  margin: 10px auto;
   background-color: #6cb1e2;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -311,8 +308,9 @@ h3{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+  gap: 10px; /* Add small gap between elements */
   box-sizing: border-box;
-  min-height: 200px; /* Maintain original height */
+  min-height: 200px;
 }
 
 /* Player photo styling */
@@ -402,7 +400,7 @@ h3{
 
   .jersey-number {
     font-size: 4.5em;
-    margin-right: 40px;
+    margin-right: 10px;
     font-weight: bold;
     font-family: "Impact", "Arial Black", sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
