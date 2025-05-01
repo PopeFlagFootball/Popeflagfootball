@@ -365,6 +365,21 @@ h3{
 .player-positions {
   color: #fff; /* Change color for positions if desired */
 }
+
+.jersey-number {
+  font-size: 3em; /* Default jersey number size */
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: #15284c;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #6cb1e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* For screens smaller than 768px (tablets and small laptops) */
 @media (max-width: 768px) {
   .player {
@@ -388,32 +403,20 @@ h3{
 
 /* Further adjustments for very small screens (phones in portrait) */
 @media (max-width: 480px) {
-  .player {
-    flex-direction: column; /* Stack player photo and info vertically */
-    align-items: flex-start; /* Align items to the left */
-  }
+    .player {
+      flex-direction: column; /* Stack player photo and info vertically */
+      align-items: flex-start; /* Align items to the left */
+    }
 
-  .player-photo {
-    margin-right: 20px; /* Remove the margin on small screens */
-    margin-bottom: 10px; /* Add space below the image */
-  }
+    .player-photo {
+      margin-right: 20px; /* Remove the margin on small screens */
+      margin-bottom: 10px; /* Add space below the image */
+    }
 
-  .jersey-number {
-    font-size: 2em;
-    margin-right: 15px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    background: #15284c;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 2px solid #6cb1e2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .player-name, .player-grade, .player-positions {
-    font-size: 3em;
-  }
+    .player-name, .player-grade, .player-positions {
+      font-size: 3em;
+    }
+    .jersey-number {
+      font-size: 2em;
+    }
 }
