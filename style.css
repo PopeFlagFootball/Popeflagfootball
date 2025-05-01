@@ -382,8 +382,16 @@ h3{
   }
 
   .jersey-number {
-    font-size: 3em;
-    margin-right: 50px;
+    font-size: 4.5em;
+    margin-right: 40px;
+    font-weight: bold;
+    font-family: "Impact", "Arial Black", sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    background: #15284c;
+    padding: 5px 15px;
+    border-radius: 8px;
+    border: 2px solid #6cb1e2;
   }
 
   .player-name, .player-grade, .player-positions {
