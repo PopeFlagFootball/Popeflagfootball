@@ -218,6 +218,7 @@ h2 {
 #welcome img {
   display: block;
   margin: 0 auto;
+  margin-bottom: 20px;
   color: #fff
 }
 .grid-container {
