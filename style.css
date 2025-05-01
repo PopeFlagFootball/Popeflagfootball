@@ -325,19 +325,36 @@ h3{
 /* Player information */
 .player-info {
   display: flex;
-  align-items: center; /* Align items vertically in the center */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
-/* Adjust individual player details to ensure they are inline */
 .player-name {
-  font-size: 2em; /* Adjust as needed */
-  margin-right: 15px; /* Space between name and grade */
+  font-size: 2em;
+  margin: 0;
+  padding: 5px 0;
+  border-bottom: 1px solid white;
+  width: 100%;
+  text-align: center;
 }
 
-.player-grade,
+.player-grade {
+  font-size: 2em;
+  margin: 0;
+  padding: 5px 0;
+  border-bottom: 1px solid white;
+  width: 100%;
+  text-align: center;
+}
+
 .player-positions {
   font-size: 2em;
-  margin-right: 15px; /* Space between grade and positions */
+  margin: 0;
+  padding: 5px 0;
+  width: 100%;
+  text-align: center;
 }
 
 /* Optional: You can use these classes if you want to specify individual styles for grade and positions */
