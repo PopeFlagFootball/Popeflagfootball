@@ -399,11 +399,10 @@ h3{
   }
 
   .jersey-number {
-    font-size: 6em !important;
+    font-size: 2em;
     margin-right: 15px;
-    font-weight: 900;
-    font-family: "Impact", "Arial Black", sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-family: Arial, sans-serif;
     color: #fff;
     background: #15284c;
     padding: 10px 20px;
