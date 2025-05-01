@@ -282,56 +282,103 @@ h3{
   font-weight: bold; /* Set font weight to bold on hover */
 }
 
+/* Basic Styling for larger screens remains unchanged */
+
 .roster {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 800px; /* Set a max width for the entire roster */
+  margin: 20px auto; /* Center align the roster */
   padding: 10px;
+  display: flex; /* Enable flexbox for the roster */
+  flex-wrap: wrap; /* Allow wrapping into multiple rows */
+  justify-content: space-between; /* Ensure equal spacing between columns */
 }
 
 .player {
-  display: flex;
-  align-items: center;
+  flex: 0 0 calc(50% - 20px); /* Ensure each player takes 50% width minus margins */
+  margin: 10px; /* Add space around player cards */
   background-color: #6cb1e2;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
-  margin-bottom: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex; /* Keep player info aligned in a row */
+  align-items: center;
+  box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
 }
 
+/* Player photo styling */
 .player-photo {
-  width: 100px;
-  height: 100px;
+  width: 160px; /* Increase size to 160px */
+  height: 200px; /* Increase height to 160px */
   border-radius: 50%;
-  margin-right: 15px;
+  margin-right: 30px;
 }
 
+/* Player information */
 .player-info {
   display: flex;
-  align-items: center;
+  align-items: center; /* Align items vertically in the center */
 }
 
+/* Adjust individual player details to ensure they are inline */
 .player-name {
-  margin-right: 20px; /* Increased margin for more space */
-  font-size: 1.5em;
+  font-size: 2em; /* Adjust as needed */
+  margin-right: 15px; /* Space between name and grade */
 }
 
-.player-grade, .player-positions {
-  margin: 0 20px; /* Increased horizontal margins */
-  font-size: 1.5em;
+.player-grade,
+.player-positions {
+  font-size: 2em;
+  margin-right: 15px; /* Space between grade and positions */
 }
 
+/* Optional: You can use these classes if you want to specify individual styles for grade and positions */
 .player-grade {
-  margin-left: 20px; /* More space between name and grade */
+  font-weight: bold; /* Make grade bold for emphasis */
 }
 
 .player-positions {
-  margin-left: 20px; /* More space between grade and positions */
+  color: #fff; /* Change color for positions if desired */
 }
-.jersey-number {
-    font-size: 2em; /* Increased font size */
-    font-weight: bold; /* Bold text */
-    margin-right: 30px; /* Space between jersey number and player picture */
-    width: 40px; /* Adjust width as needed for alignment */
-    text-align: center;
+/* For screens smaller than 768px (tablets and small laptops) */
+@media (max-width: 768px) {
+  .player {
+    flex: 1 1 100%; /* Full width for each player card */
+    margin: 10px 0; /* Adjust spacing for single-column layout */
+  }
+
+  .player-photo {
+    width: 60px; /* Scale image down */
+    height: 60px;
+  }
+
+  .jersey-number {
+    font-size: 5em;
+  }
+
+  .player-name, .player-grade, .player-positions {
+    font-size: 1.2em;
+  }
+}
+
+/* Further adjustments for very small screens (phones in portrait) */
+@media (max-width: 480px) {
+  .player {
+    flex-direction: column; /* Stack player photo and info vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .player-photo {
+    margin-right: 20px; /* Remove the margin on small screens */
+    margin-bottom: 10px; /* Add space below the image */
+  }
+
+  .jersey-number {
+    font-size: 3em;
+    margin-right: 50px;
+  }
+
+  .player-name, .player-grade, .player-positions {
+    font-size: 3em;
+  }
 }
