@@ -8,7 +8,28 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <!-- Include Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <style>
+      .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .grid-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            aspect-ratio: 1 / 1;
+        }
+        .grid-item img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .loading { text-align: center; font-size: 1.2rem; color: #666; }
+  </style>
 </head>
+
 <body>
    <header>
   <img src="Pictures/Picture1.png" alt="Pope Flag Football" class="header-img left"> <!-- Add left image -->
@@ -27,12 +48,54 @@
       <a href="sponsorships.html">Sponsorships</a>
       <a href="contact.html">Record Book</a>
     </nav>
+    <br>
+    <div id="loading" class="loading">Loading Images...</div>
+    <div class="image-grid" id="gallery"></div>
 
+    <script>
+        // paste your Google Apps Script Web App URL here
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXkHvHoY4nUCG6N8CeYDpwBS_MArqJ7gPHxwiViXVqcdNWYbNI9Vqg5m-0-8OLmBbLMw/exec"; 
+
+        async function loadGallery() {
+            try {
+                const response = await fetch(APPS_SCRIPT_URL);
+                const imageIds = await response.json();
+                
+                const gallery = document.getElementById('gallery');
+                const loadingText = document.getElementById('loading');
+                
+                // Loop through the IDs received and inject img tags dynamically
+                imageIds.forEach(id => {
+                    const gridItem = document.createElement('div');
+                    gridItem.className = 'grid-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
+                    img.alt = "Drive Image";
+                    
+                    gridItem.appendChild(img);
+                    gallery.appendChild(gridItem);
+                });
+                
+                loadingText.style.display = 'none'; // Hide loading text
+            } catch (error) {
+                console.error("Error loading images:", error);
+                document.getElementById('loading').innerText = "Failed to load images.";
+            }
+        }
+
+        // Run the function when the page loads
+        loadGallery();
+    </script>
+</body>
+</html>
+
+<!-- 
     <div class="grid-container">
       <img src="Pictures/win2.jpg" alt="Pope Flag Football"; width = 500px>
       <img src="Pictures/ogo1.jpg" alt="Welcome image"; width = 500px>>
-      <img src="Pictures/riley1.jpg" alt="Welcome image"; width = 500px>>
-      </div>
+      <img src="Pictures/riley1.jpg" alt="Welcome image"; width = 500px>> -->
+      <!-- </div>
     <div class="gallery">
       <img src="Pictures/coach1.jpg" alt="Welcome image"; width = 500px>>
       <img src="Pictures/cora1.jpg" alt="Welcome image"; width = 500px>
@@ -57,7 +120,6 @@
     <img src="Pictures/entrance.jpg" alt="Welcome image"; width = 500px>>
     <img src="Pictures/laila1.jpg" alt="Welcome image"; width = 500px>>
   </div>
-
   <div class="gallery">
     <img src="Pictures/faith1.jpg" alt="Welcome image"; width = 500px>>
     <img src="Pictures/carly2.jpg" alt="Welcome image"; width = 500px>>
@@ -74,8 +136,6 @@
     <img src="Pictures/mac1.jpg" alt="Pope Flag Football"; width = 500px>>
     <img src="Pictures/carly4.jpg" alt="Pope Flag Football"; width = 500px>>
     <img src="Pictures/win1.jpg" alt="Pope Flag Football"; width = 500px>>
-  </div>
-    <!-- Include Lightbox JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-</body>
-</html>
+  </div> -->
+<!-- Include Lightbox JS -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script> -->

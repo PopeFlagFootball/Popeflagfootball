@@ -26,9 +26,153 @@
             <a href="sponsorships.html">Sponsorships</a>
             <a href="contact.html">Record Book</a>
           </nav>
-    </header>
+   
+
+        <style>
+            
+
+            h2 {
+                margin-bottom: 20px;
+                color: #fff;
+            }
+    
+            /* Table container for responsiveness */
+            .table-container {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1000px;
+                overflow-x: auto; /* Allows horizontal scrolling on small screens */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+                border-radius: 8px;
+                background: #6cb1e2;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                /* text-align: left; */
+            }
+    
+            th, td {
+                padding: 12px 15px;
+                border-bottom: 1px solid #ddd;
+            }
+    
+            /* Header styling */
+            th {
+                background-color: #15284c;
+                color: white;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 2rem;
+            }
+    
+            /* Zebra striping for rows */
+            tr:nth-child(even) {
+                background-color: #15284c;
+            }
+    
+            .loading {
+                font-size: 1.2rem;
+                color: #666;
+                margin-top: 20px;
+            }
+        </style>
+         </header>
+    <body>
+    
+        <h2>2024 Schedule</h2>
+        <div id="loading" class="loading">Loading table data...</div>
+        
+        <div class="table-container" id="table-wrapper" style="display: none;">
+            <table id="data-table">
+                <thead>
+                    <tr id="table-header"></tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    
+        <script>
+            // Paste your Published CSV URL here
+            const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQVKYy9CirLhrfRM3gSLGB_ES6dTbIfci4s6bkoE2L3kVw6ziDwJ3APkpS-gpN8N5t3V5EcLKhZdTSr/pub?gid=0&single=true&output=csv";
+    
+            // Helper function to parse CSV safely (handles commas inside quotes)
+            function parseCSV(text) {
+                let p = '', c = [], r = [];
+                let q = false;
+                for (let i = 0; i < text.length; i++) {
+                    let char = text[i], next = text[i+1];
+                    if (char === '"') { q = !q; }
+                    else if (char === ',' && !q) { r.push(p); p = ''; }
+                    else if (char === '\r') {} // ignore carriage returns
+                    else if (char === '\n' && !q) { r.push(p); p = ''; c.push(r); r = []; }
+                    else { p += char; }
+                }
+                if (p || r.length) { r.push(p); c.push(r); }
+                return c;
+            }
+    
+            async function loadTable() {
+                try {
+                    const response = await fetch(SHEET_CSV_URL);
+                    const csvText = await response.text();
+                    const rows = parseCSV(csvText);
+    
+                    if (rows.length === 0) return;
+    
+                    const headerRow = document.getElementById('table-header');
+                    const bodyContainer = document.getElementById('table-body');
+    
+                    // 1. Generate Headers (First row of the sheet)
+                    const headers = rows[0];
+                    headers.forEach(headerText => {
+                        const th = document.createElement('th');
+                        th.textContent = headerText;
+                        headerRow.appendChild(th);
+                    });
+    
+                    // 2. Generate Data Rows
+                    for (let i = 1; i < rows.length; i++) {
+                        const rowData = rows[i];
+                        // Skip empty rows
+                        if (rowData.length === 1 && rowData[0] === "") continue;
+    
+                        const tr = document.createElement('tr');
+                        rowData.forEach(cellText => {
+                            const td = document.createElement('td');
+                            td.textContent = cellText;
+                            tr.appendChild(td);
+                        });
+                        bodyContainer.appendChild(tr);
+                    }
+    
+                    // Show table, hide loading message
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('table-wrapper').style.display = 'block';
+    
+                } catch (error) {
+                    console.error("Error loading sheet data:", error);
+                    document.getElementById('loading').innerText = "Failed to load table data.";
+                }
+            }
+    
+            // Run on load
+            loadTable();
+        </script>
+<div><section id="welcome">
+  <div class="welcome-content">
+    <img src="Pictures/win2.jpg" alt="Pope Flag Football Win" width="66%"></div>
+        <footer>
+          <p style="font-size: 24px; font-weight: bold">#WeCompete #PFF</p>
+        </footer>
+        </body>
+        </html>
 
 
+
+<!-- 
+        
     <div class="schedule">
       <h1>2024 Schedule</h2>
       <table>
@@ -219,12 +363,4 @@
         </tbody>
       </table>
       </div>
-    </section>
-<div><section id="welcome">
-  <div class="welcome-content">
-    <img src="Pictures/win2.jpg" alt="Pope Flag Football Win" width="66%"></div>
-        <footer>
-          <p style="font-size: 24px; font-weight: bold">#WeCompete #PFF</p>
-        </footer>
-        </body>
-        </html>
+    </section> -->

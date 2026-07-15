@@ -50,35 +50,109 @@ h1 {
     max-width: 30%; /* Adjust for smaller screens */
   }
 }
+/* --- Base / Desktop Styles (Your modified CSS) --- */
 nav {
-    background-color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    width: 100%; /* Make sure nav takes 100% width of the viewport */
-    display: flex; /* Use flexbox */
-    justify-content: space-around; /* Distribute items evenly along the main axis */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-    align-items: center;
+  background-color: #fff;
+  padding: 15px 20px;
+  width: 100%; 
+  box-sizing: border-box;
+  display: flex; 
+  justify-content: center; /* Keeps logo on left, links/hamburger on right */
+  align-items: center;
+  position: relative;
 }
 
+.nav-logo {
+  color: #15284c;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+  max-width: 1000px; /* Limits maximum expansion on desktop */
+}
 
 nav a {
-    color: #15284c;
-    text-decoration: none;
-    padding: 0 35px;
-    font-size: 24px;
-    flex: 1; /* Let each link take equal space within the flex container */
-    max-width: 200px; /* Optionally, set a max-width for each link */
+  color: #15284c;
+  text-decoration: none;
+  padding: 10px 20px; /* Reduced side padding slightly for better fit */
+  font-size: 20px; /* Cleaned up size for desktop layout compatibility */
+  text-align: center;
 }
-
 
 nav a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-nav span {
-  color: white; /* Set text color */
-  font-size: 20px; /* Adjust font size */
+/* Hide the hamburger button on desktop */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: #15284c;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+
+/* --- Mobile Responsive Styles (Screens under 768px) --- */
+@media (max-width: 768px) {
+  /* Show the hamburger button */
+  .menu-toggle {
+      display: flex;
+  }
+
+  /* Convert link container into a hidden vertical dropdown drawer */
+  .nav-links {
+      display: none; /* Hidden by default */
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: 100%; /* Sits directly underneath the nav bar */
+      left: 0;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      z-index: 100;
+  }
+
+  /* Make links block elements stacked vertically */
+  nav a {
+      width: 100%;
+      max-width: none;
+      padding: 15px 0;
+      box-sizing: border-box;
+      border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* Target state when menu is toggled active via JS */
+  .nav-links.active {
+      display: flex;
+  }
+
+  /* Optional: Turn the hamburger icon into an "X" when open */
+  .menu-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+  }
+  .menu-toggle.active .bar:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+  }
+  .menu-toggle.active .bar:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+  }
 }
 
 .gray-bar {
