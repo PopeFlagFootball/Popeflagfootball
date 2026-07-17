@@ -19,7 +19,14 @@
   <div class="gray-bar">
     #WeCompete
   </div>
-    <nav>
+  <nav>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
         <a href="home.html">Home</a>
         <a href="coachingstaff.html">Coaches</a>
         <a href="roster.html">Roster</a>
@@ -27,7 +34,8 @@
         <a href="gallery.html">Gallery</a>
         <a href="sponsorships.html">Sponsorships</a>
         <a href="contact.html">Record Book</a>
-    </nav>
+    </div>
+</nav>
     <section id="home">
       <div class="center-content">
         <p style="font-size: 45px; font-weight: bold;">Pope Flag Football Coaching Staff</p>
@@ -62,5 +70,16 @@
     <footer>
         <p style="font-size: 24px; font-weight: bold">#WeCompete #PFF</p>
     </footer>
+    <script>
+      const mobileMenuBtn = document.getElementById('mobile-menu');
+      const navLinksContainer = document.getElementById('nav-links');
+  
+      mobileMenuBtn.addEventListener('click', () => {
+          // Toggles the visibility of the links
+          navLinksContainer.classList.toggle('active');
+          // Toggles the "X" animation on the hamburger bars
+          mobileMenuBtn.classList.toggle('active');
+      });
+  </script>
 </body>
 </html>

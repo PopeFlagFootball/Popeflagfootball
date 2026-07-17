@@ -1,23 +1,28 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule - Pope Flag Football</title>
     <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+<body>
+    <header>
+        <img src="Pictures/Picture1.png" alt="Left image" class="header-img left"> <h1>Schedule</h1>
+        <img src="Pictures/ghsa.png" alt="Right image" class="header-img right"> </header>
+    
+    <div class="gray-bar">
+        #WeCompete
+    </div>
+    
+    <nav>
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
 
-
-  </head>
-      <body>
-         <header>
-        <img src="Pictures/Picture1.png" alt="Left image" class="header-img left"> <!-- Add left image -->
-        <h1>Schedule</h1>
-        <img src="Pictures/ghsa.png" alt="Right image" class="header-img right"> <!-- Add right image -->
-          </header>
-        <div class="gray-bar">
-          #WeCompete
-        </div>
-          <nav>
+        <div class="nav-links" id="nav-links">
             <a href="home.html">Home</a>
             <a href="coachingstaff.html">Coaches</a>
             <a href="roster.html">Roster</a>
@@ -25,342 +30,235 @@
             <a href="gallery.html">Gallery</a>
             <a href="sponsorships.html">Sponsorships</a>
             <a href="contact.html">Record Book</a>
-          </nav>
-   
-
-        <style>
-            
-
-            h2 {
-                margin-bottom: 20px;
-                color: #fff;
-            }
-    
-            /* Table container for responsiveness */
-            .table-container {
-                margin: 0 auto;
-                width: 100%;
-                max-width: 1000px;
-                overflow-x: auto; /* Allows horizontal scrolling on small screens */
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-                border-radius: 8px;
-                background: #6cb1e2;
-            }
-    
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                /* text-align: left; */
-            }
-    
-            th, td {
-                padding: 12px 15px;
-                border-bottom: 1px solid #ddd;
-            }
-    
-            /* Header styling */
-            th {
-                background-color: #15284c;
-                color: white;
-                font-weight: 600;
-                text-transform: uppercase;
-                font-size: 2rem;
-            }
-    
-            /* Zebra striping for rows */
-            tr:nth-child(even) {
-                background-color: #15284c;
-            }
-    
-            .loading {
-                font-size: 1.2rem;
-                color: #666;
-                margin-top: 20px;
-            }
-        </style>
-         </header>
-    <body>
-    
-        <h2>2024 Schedule</h2>
-        <div id="loading" class="loading">Loading table data...</div>
-        
-        <div class="table-container" id="table-wrapper" style="display: none;">
-            <table id="data-table">
-                <thead>
-                    <tr id="table-header"></tr>
-                </thead>
-                <tbody id="table-body"></tbody>
-            </table>
         </div>
+    </nav>
+
+    <style>
+      h2 {
+          margin-bottom: 20px;
+          color: #fff;
+      }
+  
+      /* Table container */
+      .table-container {
+          margin: 0 auto;
+          width: 100%;
+          max-width: 1000px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+          border-radius: 8px;
+          background: #6cb1e2;
+          margin-bottom: 80px; /* Gives spacing above the fixed footer */
+      }
+  
+      /* Explicitly styling this exact table to override global defaults */
+      #data-table {
+          width: 100% !important;
+          border-collapse: collapse !important;
+      }
+  
+      /* Desktop View overrides for paddings */
+      #data-table th, 
+      #data-table td {
+          padding: 12px 15px !important; /* Forces standard padding instead of 75px global */
+          text-align: center;
+      }
+  
+      /* Header styling */
+      #data-table th {
+          background-color: #15284c;
+          color: white;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 1.5rem;
+      }
+  
+      /* Row Background overrides */
+      #data-table tr:nth-child(even) {
+          background-color: #15284c !important;
+          color: white !important;
+      }
+  
+      #data-table tr:nth-child(odd) {
+          background-color: #6cb1e2 !important;
+          color: #15284c !important;
+      }
+  
+      .loading {
+          font-size: 1.2rem;
+          color: #666;
+          margin-top: 20px;
+          text-align: center;
+      }
+  
+      /* --- Mobile Responsive Rules Overriding Global Styles --- */
+      @media screen and (max-width: 600px) {
+          /* Strip background and shadows from container */
+          .table-container {
+              background: none !important;
+              box-shadow: none !important;
+              border-radius: 0 !important;
+              padding: 0 10px;
+              box-sizing: border-box;
+          }
+  
+          /* Force table elements to stack vertically */
+          #data-table, 
+          #data-table thead, 
+          #data-table tbody, 
+          #data-table th, 
+          #data-table td, 
+          #data-table tr {
+              display: block !important;
+              width: 100% !important;
+          }
+  
+          /* Hide desktop table header rows completely */
+          #data-table thead tr {
+              position: absolute !important;
+              top: -9999px !important;
+              left: -9999px !important;
+          }
+  
+          /* Format each table row as its own floating card */
+          #data-table tbody tr {
+              background-color: #15284c !important; /* Uniform background for dark contrast cards */
+              color: #fff !important;
+              margin-bottom: 15px !important;
+              border-radius: 8px !important;
+              padding: 10px 15px !important;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+              box-sizing: border-box !important;
+          }
+  
+          /* Format the cells inside the card */
+          #data-table td {
+              border: none !important;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+              position: relative !important;
+              padding: 10px 0 10px 40% !important; /* Absolute reset of the global 75px pads */
+              text-align: right !important;
+              font-size: 1rem !important;
+              box-sizing: border-box;
+          }
+  
+          #data-table td:last-child {
+              border-bottom: none !important;
+          }
+  
+          /* Inject labels from JavaScript variables into the left column of the card */
+          #data-table td::before {
+              content: attr(data-label);
+              position: absolute;
+              left: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 35%;
+              text-align: left;
+              font-weight: bold;
+              /* color: #6cb1e2; Light blue label token headers */
+              text-transform: uppercase;
+              font-size: 0.85rem;
+          }
+      }
+  </style>
+
+    <h2>2024 Schedule</h2>
+    <div id="loading" class="loading">Loading table data...</div>
     
-        <script>
-            // Paste your Published CSV URL here
-            const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQVKYy9CirLhrfRM3gSLGB_ES6dTbIfci4s6bkoE2L3kVw6ziDwJ3APkpS-gpN8N5t3V5EcLKhZdTSr/pub?gid=0&single=true&output=csv";
-    
-            // Helper function to parse CSV safely (handles commas inside quotes)
-            function parseCSV(text) {
-                let p = '', c = [], r = [];
-                let q = false;
-                for (let i = 0; i < text.length; i++) {
-                    let char = text[i], next = text[i+1];
-                    if (char === '"') { q = !q; }
-                    else if (char === ',' && !q) { r.push(p); p = ''; }
-                    else if (char === '\r') {} // ignore carriage returns
-                    else if (char === '\n' && !q) { r.push(p); p = ''; c.push(r); r = []; }
-                    else { p += char; }
-                }
-                if (p || r.length) { r.push(p); c.push(r); }
-                return c;
+    <div class="table-container" id="table-wrapper" style="display: none;">
+        <table id="data-table">
+            <thead>
+                <tr id="table-header"></tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQVKYy9CirLhrfRM3gSLGB_ES6dTbIfci4s6bkoE2L3kVw6ziDwJ3APkpS-gpN8N5t3V5EcLKhZdTSr/pub?gid=0&single=true&output=csv";
+
+        function parseCSV(text) {
+            let p = '', c = [], r = [];
+            let q = false;
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+                if (char === '"') { q = !q; }
+                else if (char === ',' && !q) { r.push(p); p = ''; }
+                else if (char === '\r') {} 
+                else if (char === '\n' && !q) { r.push(p); p = ''; c.push(r); r = []; }
+                else { p += char; }
             }
-    
-            async function loadTable() {
-                try {
-                    const response = await fetch(SHEET_CSV_URL);
-                    const csvText = await response.text();
-                    const rows = parseCSV(csvText);
-    
-                    if (rows.length === 0) return;
-    
-                    const headerRow = document.getElementById('table-header');
-                    const bodyContainer = document.getElementById('table-body');
-    
-                    // 1. Generate Headers (First row of the sheet)
-                    const headers = rows[0];
-                    headers.forEach(headerText => {
-                        const th = document.createElement('th');
-                        th.textContent = headerText;
-                        headerRow.appendChild(th);
+            if (p || r.length) { r.push(p); c.push(r); }
+            return c;
+        }
+
+        async function loadTable() {
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const csvText = await response.text();
+                const rows = parseCSV(csvText);
+
+                if (rows.length === 0) return;
+
+                const headerRow = document.getElementById('table-header');
+                const bodyContainer = document.getElementById('table-body');
+
+                // 1. Generate Headers
+                const headers = rows[0];
+                headers.forEach(headerText => {
+                    const th = document.createElement('th');
+                    th.textContent = headerText;
+                    headerRow.appendChild(th);
+                });
+
+                // 2. Generate Data Rows
+                for (let i = 1; i < rows.length; i++) {
+                    const rowData = rows[i];
+                    if (rowData.length === 1 && rowData[0] === "") continue;
+
+                    const tr = document.createElement('tr');
+                    rowData.forEach((cellText, index) => {
+                        const td = document.createElement('td');
+                        td.textContent = cellText;
+                        // Key adjustment: Save header titles to individual cells as data attributes
+                        td.setAttribute('data-label', headers[index] || '');
+                        tr.appendChild(td);
                     });
-    
-                    // 2. Generate Data Rows
-                    for (let i = 1; i < rows.length; i++) {
-                        const rowData = rows[i];
-                        // Skip empty rows
-                        if (rowData.length === 1 && rowData[0] === "") continue;
-    
-                        const tr = document.createElement('tr');
-                        rowData.forEach(cellText => {
-                            const td = document.createElement('td');
-                            td.textContent = cellText;
-                            tr.appendChild(td);
-                        });
-                        bodyContainer.appendChild(tr);
-                    }
-    
-                    // Show table, hide loading message
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('table-wrapper').style.display = 'block';
-    
-                } catch (error) {
-                    console.error("Error loading sheet data:", error);
-                    document.getElementById('loading').innerText = "Failed to load table data.";
+                    bodyContainer.appendChild(tr);
                 }
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('table-wrapper').style.display = 'block';
+
+            } catch (error) {
+                console.error("Error loading sheet data:", error);
+                document.getElementById('loading').innerText = "Failed to load table data.";
             }
+        }
+
+        loadTable();
+    </script>
+
+    <div>
+        <section id="welcome">
+            <div class="welcome-content">
+                <img src="Pictures/win2.jpg" alt="Pope Flag Football Win" width="66%">
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p style="font-size: 24px; font-weight: bold">#WeCompete #PFF</p>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navLinksContainer = document.getElementById('nav-links');
     
-            // Run on load
-            loadTable();
-        </script>
-<div><section id="welcome">
-  <div class="welcome-content">
-    <img src="Pictures/win2.jpg" alt="Pope Flag Football Win" width="66%"></div>
-        <footer>
-          <p style="font-size: 24px; font-weight: bold">#WeCompete #PFF</p>
-        </footer>
-        </body>
-        </html>
-
-
-
-<!-- 
-        
-    <div class="schedule">
-      <h1>2024 Schedule</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <div class="schedule"><th>Opponent</th></div>
-            <th>Location</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class = "schedule-background">
-            <td>Thursday, September 19</td>
-            <div class="schedule"><td>Milton (Scrimmage)</td></div>
-            <td>Pope</td>
-            <td>6:15 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-          <td>Thursday, September 19</td>
-            <div class="schedule"><td>Wheeler (Scrimmage)</td></div>
-            <td>Pope</td>
-            <td>8:15 pm</td>
-          </tr>
-          <tr>
-            <td>Saturday, October 5</td>
-            <div class="schedule"><td>Calvary Day</td></div>
-            <td>Milton HS</td>
-            <td>2:00 pm</td>
-          </tr>
-          <tr>
-            <td>Saturday, October 5</td>
-            <div class="schedule"><td>Columbus</td></div>
-            <td>Milton HS</td>
-            <td>3:00 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Monday, October 7</td>
-            <div class="schedule"><td>Riverwood</td></div>
-            <td>Riverwood HS</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Monday, October 7</td>
-            <div class="schedule"><td>Johns Creek</td></div>
-            <td>Riverwood HS</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr>
-            <td>Saturday, October 12</td>
-            <div class="schedule"><td>SF Tournament</td></div>
-            <td>South Forsyth HS</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr>
-            <td>Saturday, October 12</td>
-            <div class="schedule"><td>SF Tournament</td></div>
-            <td>South Forsyth HS</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr>
-            <td>Saturday, October 12</td>
-            <div class="schedule"><td>SF Tournament</td></div>
-            <td>South Forsyth HS</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Thursday, October 17</td>
-            <div class="schedule"><td>Roswell</td></div>
-            <td>Roswell HS</td>
-            <td>5:30 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Thursday, October 17</td>
-            <div class="schedule"><td>Cherokee</td></div>
-            <td>Roswell HS</td>
-            <td>6:30 pm</td>
-          </tr>
-          <tr>
-            <td>Friday, October 18</td>
-            <div class="schedule"><td>Forsyth Central</td></div>
-            <td>Pope</td>
-            <td>6:00 pm</td>
-          </tr>
-          <tr>
-            <td>Friday, October 18</td>
-            <div class="schedule"><td>Kell</td></div>
-            <td>Pope</td>
-            <td>8:00 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Wednesday, October 30</td>
-            <div class="schedule"><td>Alpharetta</td></div>
-            <td>Pope</td>
-            <td>6:00 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Wednesday, October 30</td>
-            <div class="schedule"><td>Marietta</td></div>
-            <td>Pope</td>
-            <td>8:00 pm</td>
-          </tr>
-          <tr>
-            <td>Thursday, October 31</td>
-            <div class="schedule"><td>Sequoyah</td></div>
-            <td>Sprayberry HS</td>
-            <td>7:00 pm</td>
-          </tr>
-          <tr>
-            <td>Thursday, October 31</td>
-            <div class="schedule"><td>Sprayberry</td></div>
-            <td>Sprayberry HS</td>
-            <td>8:00 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Thursday, November 7</td>
-            <div class="schedule"><td>River Ridge</td></div>
-            <td>Pope</td>
-            <td>6:00 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Thursday, November 7</td>
-            <div class="schedule"><td>Creekview</td></div>
-            <td>Pope</td>
-            <td>8:00 pm</td>
-          </tr>
-          <tr>
-            <td>Thursday, November 14</td>
-            <div class="schedule"><td>Lassiter</td></div>
-            <td>Lassiter HS</td>
-            <td>5:30 pm</td>
-          </tr>
-          <tr>
-            <td>Thursday, November 14</td>
-            <div class="schedule"><td>Woodstock</td></div>
-            <td>Lassiter HS</td>
-            <td>6:30 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Monday, November 18</td>
-            <div class="schedule"><td>Walton</td></div>
-            <td>Pope</td>
-            <td>6:00 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Monday, November 18</td>
-            <div class="schedule"><td>Allatoona</td></div>
-            <td>Pope</td>
-            <td>8:00 pm</td>
-          </tr>
-          <tr>
-            <td>Thursday, November 21</td>
-            <div class="schedule"><td>McEachern</td></div>
-            <td>McEachern HS</td>
-            <td>6:30 pm</td>
-          </tr>
-          <tr>
-            <td>Thursday, November 21</td>
-            <div class="schedule"><td>Lithia Springs</td></div>
-            <td>McEachern HS</td>
-            <td>7:30 pm</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Monday, December 5</td>
-            <div class="schedule"><td>STATE TOURNANMENT (Round 1 & 2)</td></div>
-            <td>TBD</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr>
-            <td>Thursday, December 9</td>
-            <div class="schedule"><td>STATE TOURNANMENT ELITE 8</td></div>
-            <td>TBD</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr class = "schedule-background">
-            <td>Thursday, December 13</td>
-            <div class="schedule"><td>FINAL 4</td></div>
-            <td>TBD</td>
-            <td>Game Time TBA</td>
-          </tr>
-          <tr>
-            <td>Tuesday, December 17</td>
-            <div class="schedule"><td>STATE CHAMPIONSHIP</td></div>
-            <td>TBD</td>
-            <td>Game Time TBA</td>
-          </tr>
-         <hr>
-        </tbody>
-      </table>
-      </div>
-    </section> -->
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
